@@ -8,11 +8,8 @@ import NotesApp from '../components/global/NotesApp';
 import type { Section as NotesSection } from '../components/global/NotesApp';
 import GitHubViewer from '../components/global/GitHubViewer';
 import ResumeViewer from '../components/global/ResumeViewer';
-import ShortcutsOverlay from '../components/global/ShortcutsOverlay';
 import MissionControl from '../components/global/MissionControl';
 import ContactWidget from '../components/global/ContactWidget';
-import ShortcutHint from '../components/global/ShortcutHint';
-import WelcomeTour from '../components/global/WelcomeTour';
 
 interface AppLayoutProps {
   initialBg: string;
@@ -213,20 +210,6 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
           openProjectById,
         }}
       />
-      <WelcomeTour
-        open={showTutorial}
-        onClose={() => { setShowTutorial(false); localStorage.setItem('hasCompletedTutorial', 'true'); }}
-        actions={{
-          openSpotlight: () => setIsSpotlightOpen(true),
-          openMissionControl: () => setIsMissionControlOpen(true),
-          openNotes: () => handleAppOpen('notes'),
-          openGitHub: () => handleAppOpen('github'),
-          openContact: () => setIsContactOpen(true),
-          closeAll: closeAllWindows,
-        }}
-      />
-      <ShortcutsOverlay open={showShortcuts} onClose={() => setShowShortcuts(false)} />
-      <ShortcutHint />
       <ContactWidget open={isContactOpen} onClose={() => setIsContactOpen(false)} />
       <MissionControl
         isOpen={isMissionControlOpen}

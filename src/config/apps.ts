@@ -5,8 +5,8 @@
 import type { SpotifyConfig, ResumeConfig } from '../types';
 
 export const spotify: SpotifyConfig = {
-  playlistId: '5WsS94KKm5wDhgEpg8VcgM',
-  playlistName: 'Coding-Time',
+  playlistId: '2TQS5CCpfODqVxuwPchYyq?si=d646bd9426a04600',
+  playlistName: 'My Recommandations',
 };
 
 export const resume: ResumeConfig = {

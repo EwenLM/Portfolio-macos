@@ -4,21 +4,13 @@
  */
 
 export const skills: readonly string[] = [
-  'C#',
-  'ASP.NET Core',
-  'Entity Framework',
-  'SQL Server',
-  'C++',
-  'Python',
-  'Java',
-  'Spring Boot',
-  'Hibernate',
-  'JavaScript',
+  'Php',
+  'Symfony',
+  'Javascript',
   'TypeScript',
   'React',
-  'Node.js',
-  'MongoDB',
   'MySQL',
   'PostgreSQL',
+  'MariaDB',
   'Docker',
 ] as const;

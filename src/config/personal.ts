@@ -6,11 +6,11 @@
 import type { PersonalInfo } from '../types';
 
 export const personal: PersonalInfo = {
-  name: 'Abdelrahman Saleh',
-  role: 'Software Developer - Backend Developer',
-  location: 'Giza, Egypt',
-  email: 'aabdoo2304@gmail.com',
-  website: 'aabdoo23',
-  roleFocus: 'Backend Development using .NET, C#, Entity Framework, SQL Server, and Bootstrap. Can also work with Angular, React, and Node.js.',
-  yearOfBirth: 2002,
+  name: 'Ewen Le Maux',
+  role: 'Software Architect - Web Developper',
+  location: 'Vannes, FRANCE',
+  email: 'ewen@bob-it.com',
+  website: 'EwenLM',
+  roleFocus: 'Web Developpement using Php, React, Astro.js - Software Architect using design pattern to concept apps ',
+  yearOfBirth: 1998,
 };
