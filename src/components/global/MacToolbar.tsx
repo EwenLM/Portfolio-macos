@@ -108,107 +108,6 @@ export default function MacToolbar({
     }
   };
 
-  const menus: Record<string, MenuItem[]> = {
-    File: [
-      {
-        label: 'Resume (PDF)',
-        icon: <IoDocumentText size={16} />,
-        action: () => window.open(userConfig.resume.url, '_blank'),
-      },
-      {
-        label: 'Projects (GitHub)',
-        icon: <IoCodeSlash size={16} />,
-        action: () => window.open(userConfig.social.github, '_blank'),
-      },
-      {
-        label: 'Admin Dashboard',
-        icon: <FaWindowRestore size={16} />,
-        action: () => onOpenAdmin ? onOpenAdmin() : (window.location.href = '/admin'),
-      },
-    ],
-    View: [
-      {
-        label: 'Spotlight Search…',
-        icon: <IoSearchSharp size={16} />,
-        action: () => onOpenSpotlight?.(),
-      },
-      {
-        label: 'Mission Control',
-        icon: <FaWindowRestore size={16} />,
-        action: () => onOpenMissionControl?.(),
-      },
-      {
-        label: 'Shortcuts Overlay',
-        icon: <IoHelpCircle size={16} />,
-        action: () => onToggleShortcuts?.(),
-      },
-      {
-        label: 'Reset Tutorial',
-        icon: <IoHelpCircle size={16} />,
-        action: () => onShowTutorial?.(),
-      },
-    ],
-    Window: [
-      {
-        label: 'Contact…',
-        icon: <IoMail size={16} />,
-        action: () => onOpenContact?.(),
-      },
-      {
-        label: 'Close All Windows',
-        icon: <IoDocumentText size={16} />,
-        action: () => onCloseAllWindows?.(),
-      },
-      {
-        label: 'Shuffle Background',
-        icon: <IoDocumentText size={16} />,
-        action: () => onShuffleBackground?.(),
-      },
-    ],
-    Go: [
-      {
-        label: 'GitHub',
-        icon: <FaGithub size={16} />,
-        action: () => window.open(userConfig.social.github, '_blank'),
-      },
-      {
-        label: 'LinkedIn',
-        icon: <FaLinkedin size={16} />,
-        action: () => window.open(userConfig.social.linkedin, '_blank'),
-      },
-      {
-        label: 'Email',
-        icon: <FaEnvelope size={16} />,
-        action: () => window.open(`mailto:${userConfig.contact.email}`),
-      },
-    ],
-    Edit: [
-      {
-        label: 'Copy Email',
-        icon: <IoMail size={16} />,
-        action: () => {
-          navigator.clipboard.writeText(userConfig.contact.email);
-          alert('Email copied to clipboard!');
-        },
-      },
-      {
-        label: 'Copy Phone',
-        icon: <IoCall size={16} />,
-        action: () => {
-          navigator.clipboard.writeText(userConfig.contact.phone);
-          alert('Phone number copied to clipboard!');
-        },
-      },
-    ],
-    Help: [
-      {
-        label: 'Keyboard Shortcuts',
-        icon: <IoHelpCircle size={16} />,
-        action: () => onToggleShortcuts?.(),
-      },
-    ],
-  };
-
   const renderMenu = (menuItems: MenuItem[]) => (
     <div className="absolute top-full left-0 mt-1 bg-gray-800/90 backdrop-blur-sm rounded-lg shadow-xl py-1 min-w-[200px]" role="menu">
       {menuItems.map((item, index) => (
@@ -275,42 +174,9 @@ export default function MacToolbar({
               </div>
             )}
           </div>
-          {Object.entries(menus).map(([menu, items]) => (
-            <div key={menu} className="relative">
-              <button 
-                className='cursor-pointer hover:text-gray-300 transition-colors'
-                onClick={() => handleMenuClick(menu)}
-                aria-haspopup="menu"
-                aria-expanded={activeMenu === menu}
-                aria-controls={`menu-${menu}`}
-                role="menuitem"
-              >
-                {menu}
-              </button>
-              {activeMenu === menu && (
-                <div id={`menu-${menu}`}>
-                  {renderMenu(items)}
-                </div>
-              )}
-            </div>
-          ))}
+          
         </div>
         <div className='flex items-center space-x-4'>
-          <VscVscode
-            size={16}
-            className='cursor-pointer hover:opacity-80 transition-opacity'
-            onClick={handleVSCodeClick}
-            title='Open in VSCode'
-          />
-          <MdWifi size={16} />
-          <IoSearchSharp
-            size={16}
-            className='cursor-pointer hover:opacity-80 transition-opacity'
-            onClick={() => onOpenSpotlight?.()}
-            title='Search (Ctrl/Cmd+K)'
-            role='button'
-            aria-label='Open search'
-          />
           <span className='cursor-default'>
             {formatMacDate(currentDateTime)}
           </span>

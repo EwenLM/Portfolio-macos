@@ -1,7 +1,7 @@
 import { useEffect, useReducer, useState } from 'react';
 import Spotlight from '../components/global/Spotlight';
 import MacToolbar from '../components/global/MacToolbar';
-import MacTerminal from '../components/global/MacTerminal';
+//import MacTerminal from '../components/global/MacTerminal';
 import MobileDock from '../components/global/MobileDock';
 import DesktopDock from '../components/global/DesktopDock';
 import NotesApp from '../components/global/NotesApp';
@@ -191,9 +191,9 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
       <ResumeViewer isOpen={state.windows.resume} onClose={() => {
         handleAppClose('resume');
       }} />
-      <MacTerminal isOpen={state.windows.terminal} onClose={() => {
+      {/* <MacTerminal isOpen={state.windows.terminal} onClose={() => {
         handleAppClose('terminal');
-      }} />
+      }} /> */}
       <Spotlight
         isOpen={isSpotlightOpen}
         onClose={() => setIsSpotlightOpen(false)}

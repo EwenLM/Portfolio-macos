@@ -11,18 +11,27 @@ function getRandomBackground() {
   return `bg-${Math.floor(Math.random() * backgrounds.length) + 1}`;
 }
 
-const optimizedBackgrounds = await Promise.all(
-  backgrounds.map((bg) =>
-    getImage({
-      src: bg,
-      width: 3500,
-    })
-  )
-);
+let backgroundMap: Record<string, string>;
 
-const backgroundMap = Object.fromEntries(
-  optimizedBackgrounds.map((bg, index) => [`bg-${index + 1}`, bg.src])
-);
+try {
+  const optimizedBackgrounds = await Promise.all(
+    backgrounds.map((bg) =>
+      getImage({
+        src: bg,
+        width: 3500,
+      })
+    )
+  );
+
+  backgroundMap = Object.fromEntries(
+    optimizedBackgrounds.map((bg, index) => [`bg-${index + 1}`, bg.src])
+  );
+} catch (error) {
+  console.error('Failed to optimize landing page backgrounds:', error);
+  backgroundMap = Object.fromEntries(
+    backgrounds.map((bg, index) => [`bg-${index + 1}`, bg.src])
+  );
+}
 ---
 
 <AppLayout
